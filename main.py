@@ -14,6 +14,7 @@
 
 #import Gabis module
 import parking as p
+import tickets as t
 
 def main():
     final_total = 0
