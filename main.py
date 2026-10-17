@@ -57,15 +57,24 @@ def main():
         goodbye_message()
 
 def welcome_message():
+    # a short welcome message from the zoo
     print("Welcome to the Oregon Zoo ticket and parking store")
 
 def display_menu():
+    # displays menu options for the user
+    # returns: void
     print("\nMenu")
     print("T - Ticket menu")
     print("P - Parking menu")
     print("Q - Quit")
 
 def get_input(prompt):
+    '''
+    params: string prompt
+    gets user input as string, uses a while-loop
+    plus try-except block to validate data
+    returns: choice[0].lower().strip()
+    '''
     success = False
     while not success:
         try:
@@ -79,6 +88,12 @@ def get_input(prompt):
 
 def display_receipt(total_tickets, final_ticket_price, total_hours_parked, 
                     final_parking_total, final_total):
+    '''
+    displays final basket total. uses .format() to make it look nice
+    params: total_tickets, final_ticket_price, total_hours_parked, 
+            final_parking_total, final_total
+    returns: void
+    '''
     print("\n            Basket total")
     print("{: <20}{: >10}".format("Tickets purchased:", total_tickets))
     print("{: <20}{: >10}".format("Tickets subtotal:", "$"+final_ticket_price))
@@ -87,6 +102,10 @@ def display_receipt(total_tickets, final_ticket_price, total_hours_parked,
     print("{: <20}{: >10}".format("Final cost:", "$"+final_total))
 
 def goodbye_message():
+    '''
+    a simple goodbye message
+    returns: void
+    '''
     print("\nThank you for visiting the Oregon Zoo!")
 
 main()
