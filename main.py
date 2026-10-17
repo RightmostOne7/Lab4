@@ -12,7 +12,7 @@
 # Sources:      Lab 3 Assignment Instructions & Murach's Python Programming
 #********************************************************************************
 
-#import Gabis module
+import tickets as t
 import parking as p
 
 def main():
@@ -24,11 +24,10 @@ def main():
     if user_choice != "q":
         while user_choice != "q":
             if (user_choice == "t"):
-                print("delete me") #placeholder function so the
-                #else block stops yelling at me.
-                #get ticket_number (module function)
-                #get ticket_price (module function)
-                #add ticket_price to final_total
+                ticket_price, ticket_number = t.ticketCalculations()
+                ticket_tax = t.taxCalculations(ticket_price)
+                final_total += t.totalCalculations(ticket_price, ticket_tax)
+                total_tickets += ticket_number
             else:
                 parking_time = p.get_parking_time("Enter number of parking hours: ")
                 parking_price = p.get_parking_cost(parking_time, 3)
@@ -46,8 +45,8 @@ def welcome_message():
 def display_menu():
     print("\nMenu")
     print("T - Ticket menu")
-    print("P - parking menu")
-    print("Q - quit")
+    print("P - Parking menu")
+    print("Q - Quit")
 
 def get_input(prompt):
     success = False
@@ -69,8 +68,6 @@ def display_reciept():
     '''
 
 def goodbye_message():
-    '''
-    finish this later. probably a one line message
-    '''
+    print("\nThank you for visiting the Oregon Zoo!")
 
 

@@ -25,7 +25,7 @@ def ticketCalculations():
                 print("Please enter a number greater than 0.")
         except:
             print("Invalid input, please enter a whole number.")
-    return ticketSubtotal
+    return ticketSubtotal, ticketPurchase
 
 
 def taxCalculations(ticketSubtotal):
