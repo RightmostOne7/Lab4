@@ -3,6 +3,11 @@ TAX_RATE = 0.07
 
 
 def ticketCalculations():
+    '''
+    gets ticket price and total tickets
+    uses recursive try-except + if statements to get valid data
+    return: ticketSubtotal, ticketPurchase
+    '''
     ticketPrice = 25
     ticketSubtotal = 0
 # ticket purchase calculation loop
@@ -29,16 +34,28 @@ def ticketCalculations():
 
 
 def taxCalculations(ticketSubtotal):
+    '''
+    calculates tax on subtotal
+    returns subtotal * taxrate
+    '''
     taxAmount = ticketSubtotal * TAX_RATE
     return taxAmount
 
 
 def totalCalculations(ticketSubtotal, taxAmount):
+    '''
+    gets final total 
+    returns subtotal + taxamount
+    '''
     total = ticketSubtotal + taxAmount
     return total
 
 
 def printReceipt(ticketSubtotal, taxAmount, total):
+    '''
+    a print statement for ticket purchase only
+    returns: void
+    '''
     print("\n--- Receipt ---")
     print(f"Subtotal: ${ticketSubtotal:.2f}")
     print(f"Tax: ${taxAmount:.2f}")

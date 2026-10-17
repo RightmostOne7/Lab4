@@ -16,8 +16,11 @@ import tickets as t
 import parking as p
 
 def main():
+    # define vars
     final_total, final_ticket_price, final_ticket_price, total_tickets= 0, 0, 0, 0
     total_hours_parked, final_parking_total = 0, 0
+    # welcome message from the zoo
+    # menu displays tickets, parking, and quit
     welcome_message()
     display_menu() 
 
@@ -25,24 +28,32 @@ def main():
     if user_choice != "q":
         while user_choice != "q":
             if (user_choice == "t"):
+                # call ticket module functions
                 ticket_price, ticket_number = t.ticketCalculations()
                 ticket_tax = t.taxCalculations(ticket_price)
                 new_ticket_price = t.totalCalculations(ticket_price, ticket_tax)
+                # get final total of tickets and total tickets sold
                 final_ticket_price += new_ticket_price
                 total_tickets += ticket_number
             else:
+                # gettting parking time and saves parking price
                 parking_time = p.get_parking_time("Enter number of parking hours: ")
-                parking_price = p.get_parking_cost(parking_time, 3)
+                parking_price = p.get_parking_cost(parking_time, 3) # parking cost set to $3
+                # save total hours parked and total price 
                 total_hours_parked += parking_time
                 final_parking_total += parking_price
+            #display user choice again to repeat or break the loop
             display_menu()
             user_choice = get_input("Enter T or P, or input Q to quit: ")
-        
+        #get final cost of both tickets and parking
         final_total += final_parking_total + final_ticket_price
-        display_reciept(total_tickets, final_ticket_price, total_hours_parked, 
+        # display final receipt
+        display_receipt(total_tickets, final_ticket_price, total_hours_parked, 
                     final_parking_total, final_total)
+        # display goodbye message
         goodbye_message()
     else:
+        #display goodbye message anyway if user chooses to quit immediately
         goodbye_message()
 
 def welcome_message():
@@ -66,7 +77,7 @@ def get_input(prompt):
         choice.strip()
     return choice[0]
 
-def display_reciept(total_tickets, final_ticket_price, total_hours_parked, 
+def display_receipt(total_tickets, final_ticket_price, total_hours_parked, 
                     final_parking_total, final_total):
     print("\n            Basket total")
     print("{: <20}{: >10}".format("Tickets purchased:", total_tickets))
