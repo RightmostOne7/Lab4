@@ -35,7 +35,7 @@ def totalCalculations(ticketSubtotal, taxAmount):
     return total
 
 def printReciept(ticketSubtotal, taxAmount, total):
-    print("\n--- Recipept ---")
+    print("\n--- Receipt ---")
     print(f"Subtotal: ${ticketSubtotal}")
     print(f"Tax: ${taxAmount:.2f}")
     print(f"Total: ${total:.2f}")
