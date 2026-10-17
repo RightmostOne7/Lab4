@@ -16,7 +16,8 @@ import tickets as t
 import parking as p
 
 def main():
-    final_total = 0
+    final_total, final_ticket_price, final_ticket_price, total_tickets= 0, 0, 0, 0
+    total_hours_parked, final_parking_total = 0, 0
     welcome_message()
     display_menu() 
 
@@ -38,7 +39,8 @@ def main():
             user_choice = get_input("Enter T or P, or input Q to quit: ")
         
         final_total += final_parking_total + final_ticket_price
-        display_reciept()
+        display_reciept(total_tickets, final_ticket_price, total_hours_parked, 
+                    final_parking_total, final_total)
         goodbye_message()
     else:
         goodbye_message()
@@ -66,14 +68,14 @@ def get_input(prompt):
 
 def display_reciept(total_tickets, final_ticket_price, total_hours_parked, 
                     final_parking_total, final_total):
-    print("\nBasket total:")
-    print("{: <30}{: >10}".format("Tickets purchased:", total_tickets))
-    print("{: <30}{: >10}".format("Tickets subtotal:", final_ticket_price))
-    print("{: <30}{: >10}".format("Hours parked:", total_hours_parked))
-    print("{: <30}{: >10}".format("Parking subtotal:", final_parking_total))
-    print("{: <30}{: >10}".format("Final cost:", final_total))
+    print("\n            Basket total")
+    print("{: <20}{: >10}".format("Tickets purchased:", total_tickets))
+    print("{: <20}{: >10}".format("Tickets subtotal:", "$"+final_ticket_price))
+    print("{: <20}{: >10}".format("Hours parked:", total_hours_parked))
+    print("{: <20}{: >10}".format("Parking subtotal:", "$"+final_parking_total))
+    print("{: <20}{: >10}".format("Final cost:", "$"+final_total))
 
 def goodbye_message():
     print("\nThank you for visiting the Oregon Zoo!")
 
-
+main()
