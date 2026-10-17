@@ -12,7 +12,6 @@
 # Sources:      Lab 3 Assignment Instructions & Murach's Python Programming
 #********************************************************************************
 
-#import Gabis module
 import parking as p
 import tickets as t
 
